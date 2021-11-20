@@ -14,5 +14,14 @@ public class DateTimeUtil {
     public static String toString(LocalDateTime ldt) {
         return ldt == null ? "" : ldt.format(DATE_TIME_FORMATTER);
     }
+
+    public static LocalDateTime getStartInclusive(LocalDate localDate) {
+        return localDate != null ? localDate.atStartOfDay() : MIN_DATE;
+    }
+
+    public static LocalDateTime getEndInclusive(LocalDate localDate) {
+        return localDate != null ? localDate.plus(1, ChronoUnit.DAYS).atStartOfDay() : MAX_DATE;
+    }
+
 }
 
