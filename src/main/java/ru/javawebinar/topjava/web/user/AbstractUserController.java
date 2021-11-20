@@ -7,6 +7,7 @@ import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.service.UserService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static ru.javawebinar.topjava.util.ValidationUtil.assureIdConsistent;
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNew;
@@ -19,7 +20,7 @@ public abstract class AbstractUserController {
 
     public List<User> getAll() {
         log.info("getAll");
-        return service.getAll();
+        return service.getAll().stream().collect(Collectors.toList());
     }
 
     public User get(int id) {
