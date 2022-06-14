@@ -83,12 +83,18 @@
 
         <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>
 
-        <bean id="dataSource"
-              class="org.apache.tomcat.jdbc.pool.DataSource"
-              p:driverClassName="org.postgresql.Driver"
-              p:url="${database.url}"
-              p:username="${database.username}"
-              p:password="${database.password}"/>
+<!--        <bean id="dataSource"-->
+<!--              class="org.apache.tomcat.jdbc.pool.DataSource"-->
+<!--              p:driverClassName="org.postgresql.Driver"-->
+<!--              p:url="${database.url}"-->
+<!--              p:username="${database.username}"-->
+<!--              p:password="${database.password}"/>-->
+        <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+            <property name="driverClassName" value="corg.postgresql.Driver" />
+            <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
+            <property name="username" value="user"></property>
+            <property name="password" value="password"></property>
+        </bean>
     </beans>
 
     <beans profile="jdbc">
